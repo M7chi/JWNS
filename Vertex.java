@@ -17,6 +17,7 @@ class Vertex {
         System.out.println(v1.length());
         System.out.println(v2.length());
         System.out.println(v3);
+        System.out.println(v1.equals(v3));
 
     }
 
