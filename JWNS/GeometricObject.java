@@ -53,8 +53,53 @@ public class GeometricObject {
         this(0, 0, width, hight);
     }
 
-    public GeometricObject() {
+    public GeometricObject(double x){
+        this(x,x);
+    }
+
+    public GeometricObject(){
         this(10, 10);
     }
-    
+    public double circumference() {
+        return 2 * (width + hight);
+    }
+
+    public double area() {
+        return width * hight;
+    }
+
+    public boolean contains(Vertex v) {
+        return v.x >= pos.x && v.x <= pos.x + width && v.y >= pos.y && v.y <= pos.y + hight;
+    }
+
+    public boolean isLargerAs(GeometricObject that) {
+        return this.area() > that.area();
+    }
+
+    public void moveTo(Vertex v) {
+        pos = v;
+    }
+
+    public void moveTo(double x, double y) {
+        moveTo(new Vertex(x, y));
+    }
+
+    public void move(Vertex v) {
+        moveTo(pos.add(v));
+    }
+
+    public boolean equals(GeometricObject thatObject) {
+        if (thatObject instanceof GeometricObject) {
+            GeometricObject that = (GeometricObject) thatObject;
+            return pos.equals(that.pos) && // Position gleich?
+            this.width == that.width && // Breite gleich??
+            this.hight == that.hight; // Höhe gleich?
+        }
+        return false;
+
+    }
+
+    public String toString() {
+        return "pos: " + pos + " w: " + width + "h: " + hight;
+    }
 }
