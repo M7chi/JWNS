@@ -4,53 +4,53 @@ public class GeometricObject {
 
     public Vertex pos;
     public double width;
-    public double hight;
+    public double height;
 
-    public GeometricObject(Vertex pos, double width, double hight) {
+    public GeometricObject(Vertex pos, double width, double height) {
         this.pos = pos;
-        if (width > 0) {
+        if (width < 0) {
             this.width = Math.abs(width);
             this.pos.x = this.pos.x - this.width;
         } else {
             this.width = width;
         }
 
-        if (width > 0) {
+        if (width < 0) {
             this.width = Math.abs(width);
             this.pos.y = this.pos.y - this.width;
         } else {
             this.width = width;
         }
 
-        if (hight > 0) {
-            this.hight = Math.abs(hight);
-            this.pos.x = this.pos.x - this.hight;
+        if (height < 0) {
+            this.height = Math.abs(height);
+            this.pos.x = this.pos.x - this.height;
         } else {
-            this.hight = hight;
+            this.height = height;
         }
 
-        if (hight > 0) {
-            this.hight = Math.abs(hight);
-            this.pos.y = this.pos.y - this.hight;
+        if (height < 0) {
+            this.height = Math.abs(height);
+            this.pos.y = this.pos.y - this.height;
         } else {
-            this.hight = hight;
+            this.height = height;
         }
 
         this.pos = pos;
         this.width = width;
-        this.hight = hight;
+        this.height = height;
     }
 
-    public GeometricObject(double posx, double posy, double width, double hight) {
-        this(new Vertex(posx, posy), width, hight);
+    public GeometricObject(double posx, double posy, double width, double height) {
+        this(new Vertex(posx, posy), width, height);
     }
 
     public GeometricObject(Vertex pos, double width) {
         this(pos, width, width);
     }
 
-    public GeometricObject(double width, double hight) {
-        this(0, 0, width, hight);
+    public GeometricObject(double width, double height) {
+        this(0, 0, width, height);
     }
 
     public GeometricObject(double x){
@@ -61,15 +61,15 @@ public class GeometricObject {
         this(10, 10);
     }
     public double circumference() {
-        return 2 * (width + hight);
+        return 2 * (width + height);
     }
 
     public double area() {
-        return width * hight;
+        return width * height;
     }
 
     public boolean contains(Vertex v) {
-        return v.x >= pos.x && v.x <= pos.x + width && v.y >= pos.y && v.y <= pos.y + hight;
+        return v.x >= pos.x && v.x <= pos.x + width && v.y >= pos.y && v.y <= pos.y + height;
     }
 
     public boolean isLargerAs(GeometricObject that) {
@@ -92,14 +92,14 @@ public class GeometricObject {
         if (thatObject instanceof GeometricObject) {
             GeometricObject that = (GeometricObject) thatObject;
             return pos.equals(that.pos) && // Position gleich?
-            this.width == that.width && // Breite gleich??
-            this.hight == that.hight; // Höhe gleich?
-        }
+            this.width == that.width && // Breite gleich?
+            this.height == that.height; //  Höhe gleich?
+                }
         return false;
 
     }
 
     public String toString() {
-        return "pos: " + pos + " w: " + width + "h: " + hight;
+        return "pos: " + pos + " w: " + width + "h: " + height;
     }
 }
