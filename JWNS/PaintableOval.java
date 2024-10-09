@@ -1,9 +1,18 @@
 package JWNS;
+import java.awt.Color;
 
 public class PaintableOval extends SimpleOval implements Paintable {
 
+    public PaintableOval(Vertex pos, double width, double height, Color color){
+        super(pos, width, height, color);
+    }
+    
+    public PaintableOval(double x, double y, double width, double height, Color color) {
+        this(new Vertex(x,y), width, height, color);
+    }
+
     public PaintableOval(double x, double y, double width, double height) {
-        super(x, y, width, height);
+        this(new Vertex(x,y), width, height, new Color(0,0,0));
     }
 
     
