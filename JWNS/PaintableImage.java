@@ -1,7 +1,6 @@
 package JWNS;
 
-import java.awt.Graphics;
-
+import JWNS.util.ShowInFrame;
 import javax.swing.JPanel;
 
 public class PaintableImage extends JPanel implements Paintable {
@@ -16,13 +15,14 @@ public class PaintableImage extends JPanel implements Paintable {
         this.mi = new MyImage(name);
     }
 
-    @Override
-    public void paintTo(Graphics g) {
+    public void paintTo(java.awt.Graphics g) {
         g.drawImage(mi.get(), 0, 0, this);
     }
 
     public static void main(String[] args) {
         PaintableImage pi = new PaintableImage("test.png");
-        System.out.println(pi.mi.get().getHeight(pi) + " höhe");
+        System.out.println("Breite: " + pi.mi.get().getWidth(pi) + " Höhe: " + pi.mi.get().getHeight(pi));
+        ShowInFrame.show(new PaintablePanel(pi));
     }
-}  
+
+}

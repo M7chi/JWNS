@@ -62,6 +62,10 @@ public class GeometricObject {
         this(x,x);
     }
 
+    public GeometricObject(Vertex pos){
+        this(pos, 0, 0, new Color(0,0,0));
+    }
+
     public GeometricObject(){
         this(10, 10);
     }
