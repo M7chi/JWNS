@@ -6,6 +6,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class MyImage {
+    @SuppressWarnings("unused")
     private String name;
     private Image img = null;
 
