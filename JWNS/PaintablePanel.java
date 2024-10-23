@@ -19,7 +19,8 @@ public class PaintablePanel extends SizedPanel {
 
         ShowInFrame.show(new PaintablePanel(new PaintableOval(100, 50, 300, 500, new Color(255, 100, 100))));
         // ShowInFrame.show(new PaintablePanel(new PaintableOval(10, 10, 300, 400)));
-        // ShowInFrame.show(new PaintablePanel(new PaintableRectangle(10, 10, 400,
-        // 200)));
+        // ShowInFrame.show(new PaintablePanel(new PaintableRectangle(10, 10, 400, 200)));
     }
+
+    
 }
